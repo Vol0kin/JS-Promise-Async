@@ -1,0 +1,22 @@
+{
+  "name": "js-promise-async",
+  "version": "1.0.0",
+  "description": "Collection of Promise and async exercises.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vol0kin/JS-Promise-Async.git"
+  },
+  "author": "Vladislav Nikolov Vasilev",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Vol0kin/JS-Promise-Async/issues"
+  },
+  "homepage": "https://github.com/Vol0kin/JS-Promise-Async#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
