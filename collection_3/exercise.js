@@ -15,7 +15,7 @@ function getCountry(){
   try {
     const response = await getCountry();
     const jsonResponse = await response.json();
-    const countryNames = await jsonResponse.map(country => country['CLDR display name']);
+    const countryNames = jsonResponse.map(country => country['CLDR display name']);
     
     console.log(countryNames);
   } catch (error) {
