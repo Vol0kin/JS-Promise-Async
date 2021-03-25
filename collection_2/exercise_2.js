@@ -13,17 +13,12 @@ const oldFunction = () => {
 //todo
 //return a promise that wraps oldFunction
 
-// This version handles the thrown exception by oldFunction().
-// If oldFunction() returns "ok", it resolves the promise.
-// Otherwise, it rejects the promise and returns the exception's message.
+// This version calls oldFunction() and resolves the promise with "ok" if
+// no exception is thrown.
 const getPromise = () => {
   return new Promise((resolve, reject) => {
-    try {
-      const response = oldFunction();
-      resolve(response);
-    } catch (error) {
-      reject(error.message);
-    }
+    const response = oldFunction();
+    resolve(response);
   });
 };
 
