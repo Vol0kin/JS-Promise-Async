@@ -14,13 +14,19 @@ const getPromises = () => _.map(_.range(4), () => delay(_.random(300)));
 // receives an array of promises
 // returns a promise, that's solved as soon as any of the promises in the array
 // is solved
-// 
-// My solution: return a Promise that iterates over the array of promises and
-// instructs them to resolve this promise if one of them finishes.
-const getFasterPromise = promises => {
-  return new Promise(resolve => {
+
+/* INITIAL SOLUTION: return a Promise that iterates over the array of promises
+   and instructs them to resolve this promise if one of them finishes.
+  
+   return new Promise(resolve => {
     promises.forEach(promise => promise.then(() => resolve()));
-  });
+   });
+
+   BETTER SOLUTION: Use Promise.race(), which returns as soon as one of the
+   promises is resolved.
+*/
+const getFasterPromise = promises => {
+  return Promise.race(promises);
 };
 
 (async () => {
