@@ -16,7 +16,7 @@ const oldFunction = () => {
 // This version calls oldFunction() and resolves the promise with "ok" if
 // no exception is thrown.
 const getPromise = () => {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     const response = oldFunction();
     resolve(response);
   });
