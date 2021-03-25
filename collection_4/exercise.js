@@ -9,10 +9,6 @@
   await sleep(1000)
   moreCode()
   ...
-  
-  
-  
-
 */
 
 const sleep = ms => {
@@ -22,9 +18,6 @@ const sleep = ms => {
     }, ms);
   });
 }
-
-
-
 
 // unit tests
 // do not modify the below code
@@ -51,3 +44,4 @@ describe('Sleep', function() {
     }, ms - 10)
   });
 });
+
