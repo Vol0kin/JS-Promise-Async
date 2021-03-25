@@ -2,7 +2,6 @@ const _ = require('lodash');
 
 const randomPromise = acc => {
   const n = _.random(0, 1);
-  //console.log(n)
   return n ? Promise.resolve(acc + "a") : Promise.reject(acc + "b");
 };
 
@@ -16,7 +15,6 @@ Promise.resolve("")
 
 // move the above code to async/await syntax
 (async () => {
-  //TODO CODE HERE
   let acc = "";
   let limitSequence = false;
 
