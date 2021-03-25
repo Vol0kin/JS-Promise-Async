@@ -70,7 +70,7 @@ const createTask = ({
       console.log(result)
    }
 */
-const addSerialTasks = /*async*/ (tasks = []) => {
+const addSerialTasks = async (tasks = []) => {
   // TODO: Add each value and return the sum.
   /*let result = 0
   for (const task of tasks) {
@@ -79,9 +79,14 @@ const addSerialTasks = /*async*/ (tasks = []) => {
   }
   return result*/
   
-  return tasks.reduce( async (total, task) => {
+  /*return tasks.reduce( async (total, task) => {
     return await total + await task.run()
-  }, Promise.resolve(0))
+  }, Promise.resolve(0))*/
+  
+  const values = await Promise.all(tasks.map(task => task.run()));
+  const result = values.reduce((current, next) => current + next);
+  
+  return result;
 }
 
 // Unit tests
@@ -91,7 +96,7 @@ describe('addSerialTasks', () => {
   const tasks = values.map((value, i) => createTask( {
     identifier: 'task' + i,
     block: () => {
-      return getValue(value, value);
+      return getValue(value);
     }
   }))
   
@@ -108,4 +113,3 @@ describe('addSerialTasks', () => {
       expect(result).toEqual(expectedResult)
   })
 })
-
